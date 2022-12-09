@@ -6,6 +6,7 @@ import AddNewFood from './AddNewFood';
 import ShowMeals from './EditFood/ShowMeals';
 import { useSelector } from 'react-redux';
 import EditFoodModal from './EditFood/EditFoodModal';
+import ExchangeList from "./ExchangeList";
 
 const Admin = () => {
   const [selectedTab, setSelectedTab] = useState('orderList');
@@ -31,7 +32,7 @@ const Admin = () => {
   }
 
   if (selectedTab === 'exchange') {
-    content = <OrderList/>
+    content = <ExchangeList/>
   }
 
   return (

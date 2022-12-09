@@ -1,42 +1,45 @@
 :root {
-  --primary-color: #185ee0;
-  --secondary-color: #e6eef9;
+    --primary-color: #185ee0;
+    --secondary-color: #e6eef9;
 }
+
 *, *:after, *:before {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: rgba(230, 238, 249, 0.5);
+    font-family: "Poppins", sans-serif;
+    background-color: rgba(230, 238, 249, 0.5);
 }
+
 .container {
-  display: flex;
-  justify-content: center;
-  margin: 2rem;
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
 }
 
 .container > button {
-  cursor: pointer;
-  font: inherit;
-  color: #000;
-  font-weight: 600;
-  background-color: white;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 0 1px #ccc;
-  border-radius: 4px;
-  padding: 0.5rem 2.5rem;
-  display: flex;
-  justify-content: center;
+    cursor: pointer;
+    font: inherit;
+    color: #000;
+    font-weight: 600;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 0 1px #ccc;
+    border-radius: 4px;
+    padding: 0.5rem 2.5rem;
+    display: flex;
+    justify-content: center;
 }
 
 .container > button:hover {
     background-color: black;
     border-color: black;
     color: white;
-  }
+}
 
 
-  .tabsContainer {
+.tabsContainer {
     position: absolute;
     left: 0;
     top: 0;
@@ -45,32 +48,35 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
- }
-  .tabs {
+}
+
+.tabs {
     display: flex;
     position: relative;
     background-color: #fff;
     box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
     padding: 0.75rem;
     border-radius: 99px;
- }
-  .tabs * {
+}
+
+.tabs * {
     z-index: 2;
- }
-  input[type="radio"] {
+}
+
+input[type="radio"] {
     display: none;
- }
+}
 
-  input[type="radio"]:checked + label {
+input[type="radio"]:checked + label {
     color: var(--primary-color);
- }
+}
 
-  input[type="radio"]:checked + label > .notification {
+input[type="radio"]:checked + label > .notification {
     background-color: var(--primary-color);
     color: #fff;
- }
- 
-  .tab {
+}
+
+.tab {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,17 +87,25 @@ body {
     border-radius: 99px;
     cursor: pointer;
     transition: color 0.15s ease-in;
- }
-  input[id="orderList"]:checked ~ .glider {
+}
+
+input[id="orderList"]:checked ~ .glider {
     transform: translateX(0);
- }
-  input[id="addNewFood"]:checked ~ .glider {
+}
+
+input[id="addNewFood"]:checked ~ .glider {
     transform: translateX(100%);
- }
-  input[id="editFoodItem"]:checked ~ .glider {
+}
+
+input[id="editFoodItem"]:checked ~ .glider {
     transform: translateX(200%);
- }
-  .glider {
+}
+
+input[id="exchange"]:checked ~ .glider {
+    transform: translateX(300%);
+}
+
+.glider {
     position: absolute;
     display: flex;
     height: 54px;
@@ -100,10 +114,11 @@ body {
     z-index: 1;
     border-radius: 99px;
     transition: 0.25s ease-out;
- }
-  @media (max-width: 700px) {
+}
+
+@media (max-width: 700px) {
     .tabs {
-      transform: scale(0.6);
-   }
- }
+        transform: scale(0.6);
+    }
+}
   

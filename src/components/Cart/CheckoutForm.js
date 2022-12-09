@@ -48,12 +48,12 @@ const CheckoutForm = props => {
   } = useInput(value => value.trim() !== '');
 
   const {
-    value: enteredPostal,
-    isValid: postalIsValid,
-    isInvalid: postalIsInvalid,
-    valueChangeHandler: postalChangeHandler,
-    valueChangeBlueHandler: postalBlurHandler,
-    reset: postalReset,
+    value: enteredPaymentMethod,
+    isValid: paymentMethodIsValid,
+    isInvalid: paymentMethodIsInvalid,
+    valueChangeHandler: paymentMethodChangeHandler,
+    valueChangeBlueHandler: paymentMethodBlurHandler,
+    reset: paymentMethodReset,
   } = useInput(value => value.trim() !== '');
 
   let formIsValid = false;
@@ -63,8 +63,7 @@ const CheckoutForm = props => {
     emailIsValid &&
     phoneIsValid &&
     streetIsValid &&
-    cityIsValid &&
-    postalIsValid
+    cityIsValid && paymentMethodIsValid
   ) {
     formIsValid = true;
   }
@@ -82,7 +81,7 @@ const CheckoutForm = props => {
       phone: enteredPhone,
       street: enteredStreet,
       city: enteredCity,
-      postal: enteredPostal
+      paymentMethod: enteredPaymentMethod
     });
 
     nameReset();
@@ -90,8 +89,7 @@ const CheckoutForm = props => {
     phoneReset();
     streetReset();
     cityReset();
-    postalReset();
-
+    paymentMethodReset();
   };
   
   const nameInputclasses = nameIsInvalid
@@ -113,7 +111,7 @@ const CheckoutForm = props => {
     ? `${classes.invalid} ${classes.control}`
     : classes.control;
 
-  const postalInputclasses = postalIsInvalid
+  const paymentMethodInputclasses = paymentMethodIsInvalid
     ? `${classes.invalid} ${classes.control}`
     : classes.control;
 
@@ -175,17 +173,15 @@ const CheckoutForm = props => {
         />
         {cityIsInvalid && <p>Please enter a valid city!</p>}
       </div>
-      <div className={postalInputclasses}>
-        <label htmlFor="postal">Postal</label>
-        <input
-          id="postal"
-          type="text"
-          onBlur={postalBlurHandler}
-          onChange={postalChangeHandler}
-          value={enteredPostal}
-        />
-        {postalIsInvalid && <p>Please enter a valid postal!</p>}
-      </div>     
+      <div className={paymentMethodInputclasses}>
+        <label htmlFor="paymentMethod">Payment Method</label>
+        <select value={enteredPaymentMethod} onBlur={paymentMethodBlurHandler} onChange={paymentMethodChangeHandler}>
+          <option value={'Cash on delivery'}>Cash on delivery</option>
+          <option value={'Bkash'}>Bkash</option>
+          <option value={'Credit Card'}>Credit Card</option>
+        </select>
+        {paymentMethodIsInvalid && <p>Please enter a payment method</p>}
+      </div>
       </div>
       <div className={classes.actions}>
         <button type="button" onClick={props.onCancel}>
